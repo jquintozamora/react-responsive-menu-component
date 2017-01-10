@@ -1,0 +1,111 @@
+/*
+  Global Navigation Styles
+*/
+
+.globalNav {
+  background-color: #fff;
+  position: relative;
+
+  /* For desktop users, hide the mobile Burger menu */
+  & .globalNav__Mobile{
+      display:none;
+  }
+
+  /* Global Nav Items for Desktop users - First Level and Group Menu with Second and Third Levels */
+  & .globalNav__Items {
+    width: 100%;
+    height: 100%;
+    background-color: $globalNavBackground;
+    border: 1px solid $globalNavBorder;
+
+    /* First Level Navigation Styles */
+    & ul.globalNav__FirstLevel {
+      list-style: none;
+
+      & > li {
+        border-right: 1px solid $globalNavBorder;
+        box-sizing: border-box;
+        float: left;
+
+        & > a {
+          display: block;
+          color: #666;
+          text-align: center;
+          padding: 6px 12px;
+          text-decoration: none;
+
+          &:hover {
+            background-color: $globalNavBackgroundHover;
+            text-decoration: none;
+          }
+        }
+      }
+
+      & > li:hover {
+        cursor: pointer;
+      }
+
+      & > li:hover > ul { 
+        /* Display the dropdown on hover */
+        display: block !important;
+      }
+    }
+
+
+    /* Group Menu Styles for Second and Third levels */
+    & .globalNav__groupMenu {
+      display: none; /* That will be shown using this rule & > li:hover > ul */
+      position: absolute;
+      top: 28px;
+      margin-top: 0;
+      padding: 10px 15px;
+      z-index: 1000;
+      min-width: 150px;
+      background-color: $globalNavGroupMenuBackground;
+      border: 1px solid $globalNavGroupMenuBorder;
+      box-shadow: 0 3px 5px 1px $globalNavGroupMenuBorder;
+
+      & .groupMenu__SecondLevel {
+        width: auto;
+        min-width: 100px;
+        margin: 5px 0;
+        font-size: 14px;
+        float: none;
+        display: table-cell;
+        padding-right: 7px;
+        text-align: left;
+        
+        & .groupMenu__SecondLevel__Title > a{
+            color: $groupMenuSecondLevelColor;
+            text-decoration: none;
+            &:hover {
+              text-decoration: none;
+            }
+        }
+
+        & .groupMenu__SecondLevel__List {
+          margin: 5px 0;
+          list-style: none;
+
+          & .groupMenu__ThirdLevel {
+            width: auto;
+            float: none;
+            display: list-item;
+            padding: 3px 0;
+            text-align: left;
+
+            & a {
+              float:none;
+              text-decoration: none;
+              color: black;
+              &:hover
+              { 
+                  text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

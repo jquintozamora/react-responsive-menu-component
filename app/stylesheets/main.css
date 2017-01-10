@@ -1,0 +1,50 @@
+/* CSS Architecture framework: ITCSS */
+
+/*
+ * SETTINGS
+ *    Global variables
+ *    Config switches
+ */
+@import "_settings.global.css";
+@import "_settings.breakpoints.css";
+@import "_settings.colors.css";
+
+
+/**
+ * GENERIC
+ *    Ground-zero styles
+ *    Normalize.css, resets, box-sizing, ...
+ */
+@import "_generic.reset.css";
+
+
+/**
+ * BASE
+ *    Unclassed HTML elements (type selectors)
+ */
+/*@import "_base.type.css"; */
+
+
+/**
+ * OBJECTS
+ *    Cosmetic-free design patterns
+ */
+@import "_objects.wrappers.css";
+
+
+/**
+ * COMPONENTS
+ *    Designed components
+ *    Chunks of UI
+ */
+@import "_components.globalNav.css";
+@import "_components.responsiveMenu.css";
+
+/**
+ * TRUMPS
+ *    Helpers
+ *    Overrides
+ *    !importants
+ *    Rules with high specificity
+ */
+@import "_trumps.utilities.css";
