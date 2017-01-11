@@ -4,6 +4,15 @@ This is a sample proyect for Responsive menu component built in React
 ## Demo
 You can see a demo here -> [React Responsive Menu](http://josequinto.com/reactResponsiveMenu/index.html)
 
+Responsive Menu Closed:
+
+![Responsive Menu Closed](./screenshots/ResponsiveMenuClosed.png)
+
+Responsive Menu Opened:
+
+![Responsive Menu Opened](./screenshots/ResponsiveMenuOpen.png)
+
+
 ## Features
 - [React](https://facebook.github.io/react) 
 - [ES6](http://es6-features.org) (with [babel](https://babeljs.io))
