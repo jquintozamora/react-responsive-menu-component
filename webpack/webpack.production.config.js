@@ -50,7 +50,7 @@ module.exports = {
         drop_console: true,
         drop_debugger: true,
         global_defs: {
-            __REACT_HOT_LOADER__: undefined // eslint-disable-line no-undefined
+          __REACT_HOT_LOADER__: undefined // eslint-disable-line no-undefined
         }
       },
       minimize: true,
@@ -64,16 +64,29 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin()
   ],
+  postcss: function (webpack) {
+    return [
+      require("postcss-import")({
+        //If you are using postcss-import v8.2.0 & postcss-loader v1.0.0 or later, this is unnecessary.
+        //addDependencyTo: webpack // Must be first item in list
+      }),
+      require("postcss-nesting")(),  // Following CSS Nesting Module Level 3: http://tabatkins.github.io/specs/css-nesting/
+      require("postcss-simple-vars")(),
+      require("autoprefixer")({
+        browsers: ["last 1 version"] //https://github.com/ai/browserslist
+      })
+    ];
+  },
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /\.(jsx|js)$/,
         loader: 'babel-loader',                           // User loader instead loader for compatiblity with next WebPack 2
         include: path.resolve(__dirname, './../app/src')  // Use include instead exclude to improve build performance
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style","css?sourceMap!postcss"),
+        loader: ExtractTextPlugin.extract("style", "css?sourceMap!postcss"),
         include: path.resolve(__dirname, './../app/stylesheets')  // Use include instead exclude to improve the build performance
       }
     ]

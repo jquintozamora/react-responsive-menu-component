@@ -1,6 +1,4 @@
-
 var myData = require("./data");
-
 module.exports = {
     getNavItems: (menu) => {
         return new Promise((resolve, reject) => {

@@ -1,17 +1,21 @@
 # Responsive menu component built in React
 This is a sample proyect for Responsive menu component built in React
 
+## Demo
+You can see a demo here -> [React Responsive Menu](http://josequinto.com/reactResponsiveMenu/index.html)
 
 ## Features
 - [React](https://facebook.github.io/react) 
 - [ES6](http://es6-features.org) (with [babel](https://babeljs.io))
-- [PostCSS](http://postcss.org) using ITCSS and [BEM](http://getbem.com/introduction/) methodology. 
+- [PostCSS](http://postcss.org) using ITCSS and [BEM](http://getbem.com/introduction/) methodology.
+    - import, nesting, simple-vars (SSAS style) and autoprefixer.
 - [Hot Module Replacement](https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.xh6v0ht7j) ([React Hot Loader 3](https://github.com/gaearon/react-hot-loader/issues/243))
+- Promise polyfill on demand. [More info](https://philipwalton.com/articles/loading-polyfills-only-when-needed/)
 - Webpack
     - [Webpack-dev-server](https://webpack.js.org/how-to/develop/#webpack-dev-server)
     - Webpack development environment configuration
     - Webpack Babel loader configuration
-    - Webpack SCSS configuration
+    - Webpack PostCSS configuration
     - [Webpack configuration for HMR](https://webpack.js.org/how-to/hot-module-reload)
     - Webpack production configuration
          - Split out css files (two threads, JS and CSS) using [ExtractTextPlugin](https://github.com/webpack/extract-text-webpack-plugin) 
