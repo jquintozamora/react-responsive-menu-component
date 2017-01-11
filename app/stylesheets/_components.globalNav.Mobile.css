@@ -1,0 +1,152 @@
+/*
+  Responsive Menu Styles
+*/
+
+@media (max-width: $breakPointOne) {
+
+  .globalNavContainer {
+    margin-top: 0px;
+  }
+  .pageHeader {
+    margin-bottom: 0px;
+  }
+
+  .globalNav {
+
+    & .globalNav__Items {
+      display: none;
+    }
+
+    &  .globalNav__Items-open {
+      display: block;
+      height: auto;
+      background-color: #f4f4f4;
+      margin-top: 0px;
+      position: relative;
+      z-index: 50;
+
+
+      & ul.globalNav__FirstLevel {
+          width: 100%;
+
+          & li {
+              width: 100%;
+              border-right: none;
+              box-sizing: border-box;
+
+              & a {
+                  width: 100%;
+                  font-size: 16px;
+                  padding: 15px 20px;
+                  color: #666;
+                  box-sizing: border-box;
+              }
+
+
+              & ul.groupMenu__SecondLevel__List {
+                  display: block;
+                  top: 0;
+                  width: 100%;
+                  left: 0;
+                  position: inherit;
+                  background-color: transparent;
+
+                  & li {
+                      padding: 0 !important;
+                      box-sizing: border-box;
+
+                      & a {
+                          box-sizing: border-box;
+                          color: #666;
+                      }
+                  }
+
+                  & li:hover {
+                      background-color: transparent;
+
+                      & a {
+                          color: #db0000;
+                      }
+                  }
+              }
+          }
+      }
+  }
+
+  & .globalNav__Mobile {
+      position: absolute;
+      top: -$headerHeight;
+      right: 0px;
+      width: 45px;
+      height: 45px;
+      float: left;
+      background-color: white;
+      display: block;
+      
+
+      & .globalNav__Mobile_Item {
+          width: 48px;
+          float: right;
+          cursor: pointer;
+          margin-top: 0;
+
+          & .burger {
+              position: relative;
+              left: 7px;
+              top: 7px;
+              display: inline-block;
+              width: 23px;
+              height: 40px;
+          }
+
+          & .burger span,
+          & .burger span:before,
+          & .burger span:after {
+              display: block;
+              width: 100%;
+              height: 4px;
+              background: #666;
+              -webkit-transition: all 0.5s;
+              transition: all 0.5s;
+              -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+          }
+
+          & .burger span {
+              position: relative;
+              margin: 13px 0 0;
+          }
+
+          & .burger span:before,
+          & .burger span:after {
+              position: absolute;
+              content: "";
+          }
+
+          & .burger span:before {
+              top: -8px;
+          }
+
+          & .burger span:after {
+              top: 8px;
+          }
+
+          & .burger.selected span:before {
+              -webkit-transform: translate(0px, 8px) rotate(90deg);
+              transform: translate(0px, 8px) rotate(90deg);
+          }
+
+          & .burger.selected span:after {
+              -webkit-transform: translate(0px, -8px) rotate(90deg);
+              transform: translate(0px, -8px) rotate(90deg);
+          }
+
+          & .burger.selected span {
+              -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+          }
+      }
+    }
+  }
+}
+ 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { getNavItems } from './../utils/mock/mockApi.js';
 
 export default class GlobalNav extends Component {
@@ -90,6 +91,14 @@ export default class GlobalNav extends Component {
         });
     }
 
+    handleOpenNav = () => {
+        let node = ReactDOM.findDOMNode(this.refs.burger);
+        node.classList.toggle('selected');
+
+        let listNode = ReactDOM.findDOMNode(this.refs.navList);
+        listNode.classList.toggle('globalNav__Items-open');
+    }
+
     render() {
 
         const { nav } = this.state;
@@ -102,13 +111,13 @@ export default class GlobalNav extends Component {
         return (
             <div id="globalNavRoot" className="globalNav">
                 <div id="mobile-navigation-menu" className="globalNav__Mobile" >
-                    <div id="mobile-menu">
-                        <a className="burger" href="javascript:void(0);">
+                    <div id="mobile-menu" className="globalNav__Mobile_Item" onClick={this.handleOpenNav}>
+                        <a ref="burger" className="burger" href="javascript:void(0);">
                             <span></span>
                         </a>
                     </div>
                 </div>
-                <div id="global-navigation" className="globalNav__Items">
+                <div ref="navList" id="global-navigation" className="globalNav__Items">
                     <ul className="globalNav__FirstLevel">
                         {retItems}
                     </ul>

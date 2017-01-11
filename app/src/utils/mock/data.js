@@ -65,39 +65,34 @@ module.exports = {
 		],
 		menu: [
 			{
-				href: "https://blog.josequinto.com",
-				text: "Blog",
-				title: "Blog title"
+				href: "http://localhost:3000/",
+				text: "Menu Item 1",
+				title: "Menu Item 1 title",
 			},
 			{
 				href: "https://blog.josequinto.com",
-				text: "Blog 2",
-				title: "Blog title 2"
+				text: "Menu Item 2",
+				title: "Menu Item title 2"
 			},
 			{
-				href: "https://blog.josequinto.com",
-				text: "Blog 3",
-				title: "Blog title 3"
+				href: "/josequinto",
+				text: "Menu Item 3",
+				title: "Menu Item title 3"
 			},
 			{
-				href: "https://blog.josequinto.com",
-				text: "Blog 4",
-				title: "Blog title 4"
+				href: "/section1",
+				text: "Menu Item 4",
+				title: "Menu Item title 4"
 			},
 			{
-				href: "https://blog.josequinto.com",
-				text: "Blog 5",
-				title: "Blog title 5"
+				href: "/section5",
+				text: "Menu Item 5",
+				title: "Menu Item title 5"
 			},
 			{
-				href: "https://blog.josequinto.com",
-				text: "Blog 6",
-				title: "Blog title 6"
-			},
-			{
-				href: "https://blog.josequinto.com",
-				text: "Blog 7",
-				title: "Blog title 7"
+				href: "/section6",
+				text: "Menu Item 6",
+				title: "Menu Item title 6"
 			}
 		]
 	}

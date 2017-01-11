@@ -19,6 +19,8 @@ body {
 
 .pageHeader {
 
+    height: $headerHeight;
+
     /*border: 1px solid black;*/
     margin: 5px 5px;
     background-color: white;
@@ -54,7 +56,7 @@ body {
 
 .globalNavContainer {
     /*border: 1px solid black;*/
-    /*margin: 5px 5px;*/
+    margin: 5px 5px;
     
     /* Text Vertical Alignemnt inside Div */
     max-height: 30px;
@@ -62,9 +64,17 @@ body {
 
 }
 
+.menu {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
 .content {
     /*border: 1px solid black;*/
-    margin: 5px 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
     padding: 15px 0;
     background-color: white;
 

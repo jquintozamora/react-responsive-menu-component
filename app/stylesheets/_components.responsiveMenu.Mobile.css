@@ -1,0 +1,134 @@
+/*
+  Responsive Menu Styles
+*/
+
+@media (max-width: $breakPointOne) {
+
+  .responsiveMenuContainer {
+
+    & .responsiveMenu__mobile {
+        cursor: pointer;
+        display: inline-block;
+        text-align: left;
+        position: relative;
+        background: rgba(239, 239, 239, 0.78);
+        max-height: 30px;
+        min-height: 30px;
+        width: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        
+        & .responsiveMenu__mobile__Text {
+            text-align: left;
+            padding-left: 60px;
+            font-size: 16px;
+        }
+
+        &:before {
+            position: absolute;
+            display: block;
+            content: '\FE40'; //content: '\25BC';
+            font-size: 2em;
+            color: #666666;
+            top: 4px;
+            left: 14px;
+
+            /* Close */
+            -moz-transition: -moz-transform 0.8s ease;
+            -ms-transition: -ms-transform 0.8s ease;
+            -o-transition: -o-transform 0.8s ease;
+            -webkit-transition: -webkit-transform 0.8s ease;
+            transition: transform 0.8s ease;
+
+            -moz-transform-origin: 50% 40% 0;
+            -ms-transform-origin: 50% 40% 0;
+            -o-transform-origin: 50% 40% 0;
+            -webkit-transform-origin: 50% 40% 0;
+            transform-origin: 50% 40% 0;
+        }
+
+    }
+
+    & .responsiveMenu__mobile-open {
+        background-color: #5d6166;
+        color: white;
+
+        &:before {
+            color: white;
+            top: 0px;
+            
+            -moz-transform: rotate( -180deg );
+            -ms-transform: rotate( -180deg );
+            -o-transform: rotate( -180deg );
+            -webkit-transform: rotate( -180deg );
+            transform: rotate( -180deg );
+            
+            /* Open */
+            -moz-transition: -moz-transform 550ms ease;
+            -ms-transition: -ms-transform 550ms ease;
+            -o-transition: -o-transform 550ms ease;
+            -webkit-transition: -webkit-transform 550ms ease;
+            transition: transform 550ms ease;
+
+            -moz-transform-origin: 50% 40% 0;
+            -ms-transform-origin: 50% 40% 0;
+            -o-transform-origin: 50% 40% 0;
+            -webkit-transform-origin: 50% 40% 0;
+            transform-origin: 50% 40% 0;
+        }
+    }
+
+
+    & .responsiveMenu__Items {
+      width: 100%;
+
+      & .responsiveMenu__List {
+        max-height: 0;            
+        overflow-y: hidden;
+
+        /* Close */
+        -webkit-transition: max-height 0.5s ease;
+        -ms-transition: max-height 0.5s ease;
+        -moz-transition: max-height 0.5s ease;
+        -o-transition: max-height 0.5s ease;
+        transition: max-height 0.5s ease;
+
+        & > li {
+          width: 100%;
+          float: none;
+          border-bottom: 1px solid #5d6166;
+
+          & .responsiveMenu__Item {
+            margin: 0;
+
+            &:hover {
+              background-color: $globalNavBackgroundHover;
+              text-decoration: none;
+            }
+
+            &.selected {
+              background-color: transparent;
+              font-weight: bold;
+              color: #666666;
+            }
+          }
+        }
+      }
+
+      & .responsiveMenu__List-open {
+        max-height: $maxResponsiveMenuHeight; 
+
+        /* Open */
+                -webkit-transition: max-height 0.5s ease-out;
+        -ms-transition: max-height 0.5s ease-out;
+        -moz-transition: max-height 0.5s ease-out;
+        -o-transition: max-height 0.5s ease-out;
+        transition: max-height 0.5s ease-out;
+
+        background-color: rgba(239, 239, 239, 0.78);
+
+      }
+    }
+  }
+}
+ 

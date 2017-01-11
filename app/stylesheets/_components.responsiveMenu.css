@@ -1,7 +1,6 @@
 /*
-  TODO
+  Responsive Menu Styles
 */
-
 
 .responsiveMenuContainer {
 
@@ -15,11 +14,10 @@
     & .responsiveMenu__List {
       list-style: none;
       & > li {
-        border-right: 1px solid $globalNavBorder;
         box-sizing: border-box;
         float: left;
 
-        & > a {
+        & .responsiveMenu__Item {
           display: block;
           color: #666;
           text-align: center;
@@ -30,75 +28,12 @@
             background-color: $globalNavBackgroundHover;
             text-decoration: none;
           }
+
+          &.selected {
+            background-color: white;
+          }
         }
       }
     }
   }
 }
-
-/*#secondlevelnavigation {
-    margin-bottom: -16px;
-    clear: both;
-}
-
-.ms-core-listMenu-horizontalBox {
-    color: #666666;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-li {
-  float: left;
-}
-
-.ms-core-listMenu-horizontalBox li.static>.ms-core-listMenu-selected, .ms-core-listMenu-horizontalBox li.static>.ms-core-listMenu-item:hover {
-    background-color: #fff;
-}
-
-.ms-core-listMenu-horizontalBox ul {
-    -webkit-padding-start: 0;
-    padding-left: 0;
-    list-style: none;
-}
-.ms-core-listMenu-horizontalBox ul, .ms-core-listMenu-horizontalBox li, .ms-core-listMenu-horizontalBox .ms-core-listMenu-item, .ms-core-listMenu-horizontalBox > ul > li > table {
-    display: inline-block;
-    list-style: none;
-}
-.ms-core-listMenu-root {
-    margin: 0px;
-    list-style: none;
-}
-
-.ms-core-listMenu-horizontalBox ul, .ms-core-listMenu-horizontalBox li, .ms-core-listMenu-horizontalBox .ms-core-listMenu-item, .ms-core-listMenu-horizontalBox > ul > li > table {
-    display: inline-block;
-}
-
-.ms-core-listMenu-horizontalBox li.static>.ms-core-listMenu-item {
-    margin: 8px 0 0;
-    padding: 10px 10px 8px;
-    
-}
-
-.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item {
-    margin-right: 30px;
-    border: 1px solid transparent;
-}
-
-.ms-core-listMenu-item, .ms-core-listMenu-item:link, .ms-core-listMenu-item:visited, .ms-tv-item:link, .ms-tv-item:visited, .ms-tv-header:link, .ms-tv-header:visited {
-    color: #666666;
-    text-decoration: none;
-}
-
-.ms-core-listMenu-horizontalBox ul, .ms-core-listMenu-horizontalBox li, .ms-core-listMenu-horizontalBox .ms-core-listMenu-item, .ms-core-listMenu-horizontalBox > ul > li > table {
-    display: inline-block;
-}
-
-.ms-core-listMenu-item, .ms-core-listMenu-item:link, .ms-core-listMenu-item:visited, .ms-tv-item:link, .ms-tv-item:visited, .ms-tv-header:link, .ms-tv-header:visited {
-    color: #666666;
-    text-decoration: none;
-}
-
-.ms-core-listMenu-item, .ms-core-listMenu-item:link, .ms-core-listMenu-item:visited, .ms-tv-item:link, .ms-tv-item:visited, .ms-tv-header:link, .ms-tv-header:visited {
-    color: #666666;
-    text-decoration: none;
-}*/
