@@ -27,6 +27,7 @@
         &:before {
             position: absolute;
             display: block;
+            /* http://stackoverflow.com/questions/2701192/what-characters-can-be-used-for-up-down-triangle-arrow-without-stem-for-displa */
             content: '\FE40'; //content: '\25BC';
             font-size: 2em;
             color: #666666;
