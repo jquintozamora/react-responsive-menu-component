@@ -5,26 +5,14 @@ import App from './containers/App.jsx'; // App
 
 import css from './../stylesheets/main.css';
 
-// Loading polyfill only when needed: https://philipwalton.com/articles/loading-polyfills-only-when-needed/
-function browserSupportsAllFeatures() {
-  return window.Promise;
-}
-function loadScript(src, done) {
-  let js = document.createElement('script');
-  js.src = src;
-  js.onload = function () {
-    done();
-  };
-  js.onerror = function () {
-    done(new Error('Failed to load script ' + src));
-  };
-  document.head.appendChild(js);
-}
-if (browserSupportsAllFeatures()) {
-  main()
-} else {
-  loadScript('https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise', main);
-}
+console.log("index.jsx");
+
+import { polyfillLoader } from 'polyfill-io-feature-detection';
+polyfillLoader({
+  "features": "Promise",
+  "onCompleted": main
+});
+
 function main() {
   renderWithHotReload(App);
 

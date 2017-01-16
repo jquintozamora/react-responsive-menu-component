@@ -35,6 +35,7 @@
     "webpack-visualizer-plugin": "^0.1.5"
   },
   "dependencies": {
+    "polyfill-io-feature-detection": "^1.1.6",
     "react": "~15.3.0",
     "react-dom": "~15.3.0"
   }
