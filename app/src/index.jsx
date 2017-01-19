@@ -5,8 +5,6 @@ import App from './containers/App.jsx'; // App
 
 import css from './../stylesheets/main.css';
 
-console.log("index.jsx");
-
 import { polyfillLoader } from 'polyfill-io-feature-detection';
 polyfillLoader({
   "features": "Promise",
