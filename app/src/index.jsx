@@ -6,10 +6,7 @@ import App from './containers/App.jsx'; // App
 import css from './../stylesheets/main.css';
 
 import { polyfillLoader } from 'polyfill-io-feature-detection';
-polyfillLoader({
-  "features": "Promise",
-  "onCompleted": main
-});
+
 
 function main() {
   renderWithHotReload(App);
@@ -28,3 +25,8 @@ function renderWithHotReload(App) {
     , document.getElementById('starter')
   );
 }
+
+polyfillLoader({
+  "features": "Promise",
+  "onCompleted": main
+});

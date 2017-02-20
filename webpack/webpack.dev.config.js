@@ -5,10 +5,11 @@
 //  author: Jose Quinto - https://blogs.josequinto.com
 //
 //  More webpack examples: https://github.com/webpack/webpack/tree/master/examples
+//  WebPack 2 Migrating guide: https://webpack.js.org/guides/migrating/
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-let path = require('path');
+const { resolve } = require('path');
 let webpack = require('webpack');
 
 module.exports = {
@@ -21,10 +22,7 @@ module.exports = {
   // Use devtool to enhance the debugging process. 
   //    More info: https://webpack.js.org/configuration/devtool/ 
   //               and https://webpack.github.io/docs/build-performance.html#sourcemaps
-  devtool: 'cheap-module-eval-source-map',
-
-  defineDebug: true,
-  debug: true,
+  devtool: 'inline-source-map',
   entry: {
     'app': [
       'react-hot-loader/patch',
@@ -34,10 +32,36 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, './../dist'),
+    path: resolve(__dirname, './../dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
+  devServer: {
+    // All options here: https://webpack.js.org/configuration/dev-server/
+
+    // enable HMR on the server
+    hot: true,
+    // match the output path
+    contentBase: resolve(__dirname, '../dist'),
+    // match the output `publicPath`
+    publicPath: '/static/',
+
+    // Enable to integrate with Docker
+    //host:"0.0.0.0",
+
+    port: 3001,
+
+    historyApiFallback: true,
+
+    // All the stats options here: https://webpack.js.org/configuration/stats/
+    stats: {
+      colors: true, // color is life
+      chunks: false, // this reduces the amount of stuff I see in my terminal; configure to your needs
+      'errors-only': true
+    }
+  },
+
+  context: resolve(__dirname, '../'),
   plugins: [
     // See full list: https://github.com/webpack/docs/wiki/list-of-plugins
 
@@ -45,40 +69,52 @@ module.exports = {
      * This is where the magic happens! You need this to enable Hot Module Replacement!
      */
     new webpack.HotModuleReplacementPlugin(),
-    /**
-      * When there are errors while compiling this plugin skips the emitting phase (and recording phase), 
-      * so there are no assets emitted that include errors. The emitted flag in the stats is false for all assets. 
-      * If you are using the CLI, the webpack process will not exit with an error code by enabling this plugin. 
-      * If you want webpack to "fail" when using the CLI, please check out the bail option
-      */
-    new webpack.NoErrorsPlugin()
+    // prints more readable module names in the browser console on HMR updates
+    new webpack.NamedModulesPlugin()
   ],
-  postcss: function (webpack) {
-    return [
-      require("postcss-import")({
-        //If you are using postcss-import v8.2.0 & postcss-loader v1.0.0 or later, this is unnecessary.
-        //addDependencyTo: webpack // Must be first item in list
-      }),
-      require("postcss-nesting")(),  // Following CSS Nesting Module Level 3: http://tabatkins.github.io/specs/css-nesting/
-      require("postcss-simple-vars")(),
-      require("autoprefixer")({
-        browsers: ["last 1 version"] //https://github.com/ai/browserslist
-      })
-    ];
+  watchOptions: {
+    poll: true
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.(jsx|js)$/,
-        loader: 'babel-loader',                                   // Use loader instead loaders to be compatible with the next version, webpack 2
-        include: path.resolve(__dirname, './../app/src')          // Use include instead exclude to improve the build performance
+        use: ['babel-loader'],
+        include: resolve(__dirname, './../app/src')          // Use include instead exclude to improve the build performance
       },
       {
         test: /\.css$/,
-        loader: 'style!css?sourceMap!postcss',
-        include: path.resolve(__dirname, './../app/stylesheets')  // Use include instead exclude to improve the build performance
+        include: resolve(__dirname, './../app/stylesheets'),  // Use include instead exclude to improve the build performance
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+              minimize: false
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => ([
+                require("postcss-import")({
+                  //If you are using postcss-import v8.2.0 & postcss-loader v1.0.0 or later, this is unnecessary.
+                  //addDependencyTo: webpack // Must be first item in list
+                }),
+                require("postcss-nesting")(),  // Following CSS Nesting Module Level 3: http://tabatkins.github.io/specs/css-nesting/
+                require("postcss-simple-vars")(),
+                require("autoprefixer")({
+                  browsers: ["last 1 version"] //https://github.com/ai/browserslist
+                })
+              ])
+            }
+          }
+        ]
       }
-
     ]
   }
 };
